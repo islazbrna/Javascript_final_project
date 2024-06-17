@@ -103,4 +103,47 @@ const filmy = [
 			'Na zámek v podhůří Krkonoš přijíždí jeho nový majitel Štěpán se svojí snoubenkou, krásnou komtesou Blankou, a mladším bratrem Adamem. Cestou kočár nešťastně srazí kolemjdoucí dívku, Adam jí pomůže a ona se do něj zamiluje. Na zámku Adam objeví starou vlašskou knihu, která by měla obsahovat cestu k pokladům. Tajemné značky vlašské knihy však nedokáže vyluštit ani národopisec Jiráček, který v kraji sbírá pověsti a nevychází z údivu nad tím, že zdejší lidé stále věří v Krakonoše. Na zámku se objeví záhadný cizinec a nabídne Štěpánovi, že jej k pokladu za určitých podmínek dovede. Výprava do hor může začít. Naplní se Liduščina láska k Adamovi? Jakou záhadu skrývá starý obraz na zámku Hůrka a co strašlivého se v horách kdysi odehrálo? A kdo je vlastně Krakonoš a jaké je jeho největší tajemství? (csfd.cz, Česká televize)',
 		premiera: '2022-12-24',
 	},
+	{
+		id: 'chlapectvi',
+		nazev: 'Chlapectví',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/168/779/168779460_hyk419.jpg',
+			sirka: 663,
+			vyska: 937,
+		},
+		ochutnavka: 'Chlapectví je výjimečný film. Příběh o dospívání jednoho obyčejného kluka.',
+		popis:
+			'Chlapectví je výjimečný film. Příběh o dospívání jednoho obyčejného kluka chtěl režisér Richard Linklater (Před soumrakem, Před půlnocí) natočit co nejpoctivěji, i proto na něm pracoval dvanáct let. Každý rok, na tři až čtyři natáčecí dny, se sešla tatáž sestava herců a tvůrců, aby natočila další střípek do jedné životní mozaiky. Výsledkem je snímek, který je neobyčejný svou obyčejností a také tím, jak neuvěřitelně pestrou škálu emocí dokáže ze svých diváků vydolovat. Mason (Ellar Coltrane) je sympatický šestiletý kluk, který po rozvodu rodičů žije se starší sestrou Sam (Lorelei Linklater) a mámou (Patricia Arquette). S tátou (Ethan Hawke) se ale obě děti pravidelně vídají a mají s ním kamarádský vztah. Taková je Masonova výchozí životní situace, z níž se vydává vstříc pubertě, dospívání a dospělosti. Po cestě míjí spousty známých a přátel, prvních a druhých lásek, konfliktů a usmiřování se sestrou a matkou a dalších životních křižovatek, které všichni tak důvěrně známe.',
+		premiera: '2014-7-18',
+	},
 ]
+
+const filmyObsah = document.querySelector('#seznam-filmu')
+console.log(filmy)
+filmyObsah.innerHTML = ''
+
+const filmyNovyObsah = filmy.map((jedenFilm) => {
+  return `<div class="col">
+   <div class="card">
+      <img
+         src="${jedenFilm.plakat.url}"
+         width="780"
+         height="520"
+         class="card-img-top"
+         alt="plakát"
+      />
+      <div class="card-body">
+         <h5 class="card-title">${jedenFilm.nazev}</h5>
+         <p class="card-text">${jedenFilm.ochutnavka}</p>
+          <a href="film.html#${jedenFilm.id}" class="btn btn-primary">Přehrát</a>
+      </div>
+   </div>
+</div> ` 
+});
+
+
+console.log(filmyNovyObsah)
+filmyObsah.innerHTML = filmyNovyObsah.join('')
+
+/* <a href="film.html#${id}" class="btn btn-primary">Přehrát</a> */
+
