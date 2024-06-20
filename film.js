@@ -126,13 +126,19 @@ document.querySelector('.card-title').innerHTML = vybranyFilmPozice.nazev
 document.querySelector('.card-text').innerHTML = vybranyFilmPozice.popis
 document.querySelector('img').src = vybranyFilmPozice.plakat.url
 
-	document.querySelector('#note-form').addEventListener('submit', (event) => {
-		if (Number(document.querySelector('#message-input').value.length) === 0)
+const messageInput = document.querySelector('#message-input')
+const termsCheckbox = document.querySelector('#terms-checkbox')
+const noteForm = document.querySelector('#note-form')
+
+noteForm.addEventListener('submit', (event) => {
+		if (messageInput.value === '')
 			{event.preventDefault()
-			document.querySelector('#message-input').classList.add('is-invalid')
-			document.querySelector('#message-input').focus()}
-			if (document.querySelector("#terms-checkbox").checked == false)
-				{document.querySelector("#terms-checkbox").classList.add('is-invalid')
-				document.querySelector('#terms-checkbox').focus()}
-				 return document.querySelector('#note-form').addEventListener('submit', (event) => {document.querySelector('#note-form').innerHTML = document.querySelector('#message-input').value}
-	)})
+				messageInput.classList.add('is-invalid')
+				messageInput.focus()}
+			else if (termsCheckbox.checked === false)
+				{event.preventDefault()
+					termsCheckbox.classList.add('is-invalid')
+					termsCheckbox.focus()}
+				 else {
+					noteForm.innerHTML = messageInput.value}
+	})

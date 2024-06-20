@@ -1,12 +1,12 @@
 const menuTlacitko = document.querySelector('#menu-tlacitko')
-menuTlacitko.addEventListener('click', () => {
-    document.querySelector('#menu-polozky').classList.toggle('show')
-    if(document.querySelector('#menu-polozky').className.includes('show')){
-        document.querySelector('i').classList.add("fa-xmark")}
-        else if (document.querySelector('#menu-polozky').className.includes('show')!==true)
-            {document.querySelector('i').classList.remove("fa-xmark")
-            document.querySelector('i').classList.add("fa-bars")
-            //console.log(document.querySelector('i').className)
-    }})
+const ikona = document.querySelector('i')
+const menuPolozky = document.querySelector('#menu-polozky')
 
-    console.log(document.querySelector('#menu-polozky').className)
+menuTlacitko.addEventListener('click', () => {
+    menuPolozky.classList.toggle('show')
+    if(document.querySelector('#menu-polozky').className.includes('show')){
+        ikona.classList.add("fa-xmark")}
+        else if (menuPolozky.className.includes('show')!==true)
+            {ikona.classList.remove("fa-xmark")
+            ikona.classList.add("fa-bars")
+    }})
