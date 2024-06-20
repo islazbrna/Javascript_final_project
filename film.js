@@ -160,9 +160,10 @@ noteForm.addEventListener('submit', (event) => {
 
 const premiera = document.querySelector('#premiera')
 const zaKolikDni = dayjs(vybranyFilmPozice.premiera).diff(dayjs(), 'days')
+console.log(zaKolikDni)
 
 const predNeboZaDni = () => {
-	if (zaKolikDni > 0){
+	if (zaKolikDni >= 2){
 		return 'za ' + zaKolikDni + ' dní'
 		}
 		else if (zaKolikDni === 1){
