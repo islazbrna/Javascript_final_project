@@ -116,6 +116,19 @@ const filmy = [
 			'Chlapectví je výjimečný film. Příběh o dospívání jednoho obyčejného kluka chtěl režisér Richard Linklater (Před soumrakem, Před půlnocí) natočit co nejpoctivěji, i proto na něm pracoval dvanáct let. Každý rok, na tři až čtyři natáčecí dny, se sešla tatáž sestava herců a tvůrců, aby natočila další střípek do jedné životní mozaiky. Výsledkem je snímek, který je neobyčejný svou obyčejností a také tím, jak neuvěřitelně pestrou škálu emocí dokáže ze svých diváků vydolovat. Mason (Ellar Coltrane) je sympatický šestiletý kluk, který po rozvodu rodičů žije se starší sestrou Sam (Lorelei Linklater) a mámou (Patricia Arquette). S tátou (Ethan Hawke) se ale obě děti pravidelně vídají a mají s ním kamarádský vztah. Taková je Masonova výchozí životní situace, z níž se vydává vstříc pubertě, dospívání a dospělosti. Po cestě míjí spousty známých a přátel, prvních a druhých lásek, konfliktů a usmiřování se sestrou a matkou a dalších životních křižovatek, které všichni tak důvěrně známe.',
 		premiera: '2014-7-18',
 	},
+	{
+		id: 'jen-my-dva',
+		nazev: 'Jen my dva',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w1080/files/images/film/posters/168/882/168882197_30lawp.jpg',
+			sirka: 663,
+			vyska: 937,
+		},
+		ochutnavka: 'Blanche se bláznivě zamiluje do Grégoira. On má všechno, co si jen žena může přát, jejich vztah nabírá na síle a vášnivosti: vezmou se a žijí spolu.',
+		popis:
+			'Blanche se bláznivě zamiluje do Grégoira. On má všechno, co si jen žena může přát, jejich vztah nabírá na síle a vášnivosti: vezmou se a žijí spolu. Jenže to, co následuje, není pohádka. Blanche je izolovaná od svých blízkých, zejména od svého dvojčete Rose, a nakonec se ocitne v pasti majetnického a nebezpečného muže. Film zobrazuje, jak ženy snášejí podřízenou roli a trpí násilím. Snímek, na jehož scénáři se podílela Audrey Diwanová, se nesoustředí, jak je u takových dramat zvykem, na napětí a vyústění, ale na mechanismus ovládání a na ženskou sebedůvěru – na odvahu prolomit mlčení. Režisérka Valérie Donzelli se vydává do šedé zóny, kde se ovládaná žena stává obětí kompromisů a kde agresor balancuje na hraně mezi něhou a násilím.',
+		premiera: '2024-12-30',
+	},
 ]
 
 
@@ -142,3 +155,28 @@ noteForm.addEventListener('submit', (event) => {
 				 else {
 					noteForm.innerHTML = messageInput.value}
 	})
+
+
+
+const premiera = document.querySelector('#premiera')
+const zaKolikDni = dayjs(vybranyFilmPozice.premiera).diff(dayjs(), 'days')
+
+const predNeboZaDni = () => {
+	if (zaKolikDni > 0){
+		return 'za ' + zaKolikDni + ' dní'
+		}
+		else if (zaKolikDni === 1){
+			return 'za ' + zaKolikDni.toString().slice(1) + ' den'
+		}
+		else if (zaKolikDni === 0){
+				return 'dnes'
+			}
+		else if (zaKolikDni === -1){
+			return 'pred ' + zaKolikDni.toString().slice(1) + ' dnem'
+		}
+		else {
+			return 'pred ' + zaKolikDni.toString().slice(1) + ' dny'
+		}
+}
+
+premiera.innerHTML = `Premiéra ${dayjs(vybranyFilmPozice.premiera).format('D.M.YYYY')}, což je ${predNeboZaDni()}.`
