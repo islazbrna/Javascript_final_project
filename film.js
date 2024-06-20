@@ -126,37 +126,13 @@ document.querySelector('.card-title').innerHTML = vybranyFilmPozice.nazev
 document.querySelector('.card-text').innerHTML = vybranyFilmPozice.popis
 document.querySelector('img').src = vybranyFilmPozice.plakat.url
 
-
-console.log(Number(document.querySelector('#message-input').innerHTML.length))
-console.log(document.querySelector("#terms-checkbox").checked)
-
-/* document.querySelector('#note-form').addEventListener('submit', (event) => {
-if (Number(document.querySelector('#message-input').value.length) === 0)
-	{event.preventDefault()
-	console.log(Number(document.querySelector('#message-input').value.length))
-	console.log('haha2')
-	document.querySelector('#message-input').classList.add('is-invalid')
-	document.querySelector('#message-input').focus()}
-	else if (document.querySelector("#terms-checkbox").checked == false)
-		{console.log(document.querySelector("#terms-checkbox").checked)
-			document.querySelector("#terms-checkbox").classList.add('is-invalid')
-			console.log('hihi')
-		document.querySelector('#terms-checkbox').focus()
-		}}
-	) */
-
 	document.querySelector('#note-form').addEventListener('submit', (event) => {
 		if (Number(document.querySelector('#message-input').value.length) === 0)
 			{event.preventDefault()
-			console.log(Number(document.querySelector('#message-input').value.length))
-			console.log('haha2')
 			document.querySelector('#message-input').classList.add('is-invalid')
 			document.querySelector('#message-input').focus()}
-			else if (document.querySelector("#terms-checkbox").checked == false)
-				{console.log(document.querySelector("#terms-checkbox").checked)
-					document.querySelector("#terms-checkbox").classList.add('is-invalid')
-					console.log('hihi')
-				document.querySelector('#terms-checkbox').focus()
-				}
-			else{document.querySelector('#note-form').innerHTML = document.querySelector('#message-input').value}}
-			)
+			if (document.querySelector("#terms-checkbox").checked == false)
+				{document.querySelector("#terms-checkbox").classList.add('is-invalid')
+				document.querySelector('#terms-checkbox').focus()}
+				 return document.querySelector('#note-form').addEventListener('submit', (event) => {document.querySelector('#note-form').innerHTML = document.querySelector('#message-input').value}
+	)})

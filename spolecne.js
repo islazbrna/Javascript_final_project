@@ -6,7 +6,7 @@ menuTlacitko.addEventListener('click', () => {
         else if (document.querySelector('#menu-polozky').className.includes('show')!==true)
             {document.querySelector('i').classList.remove("fa-xmark")
             document.querySelector('i').classList.add("fa-bars")
-            console.log(document.querySelector('i').className)
+            //console.log(document.querySelector('i').className)
     }})
 
     console.log(document.querySelector('#menu-polozky').className)

@@ -119,7 +119,6 @@ const filmy = [
 ]
 
 const filmyObsah = document.querySelector('#seznam-filmu')
-console.log(filmy)
 filmyObsah.innerHTML = ''
 
 const filmyNovyObsah = filmy.map((jedenFilm) => {
@@ -141,9 +140,4 @@ const filmyNovyObsah = filmy.map((jedenFilm) => {
 </div> ` 
 });
 
-
-console.log(filmyNovyObsah)
 filmyObsah.innerHTML = filmyNovyObsah.join('')
-
-/* <a href="film.html#${id}" class="btn btn-primary">Přehrát</a> */
-
